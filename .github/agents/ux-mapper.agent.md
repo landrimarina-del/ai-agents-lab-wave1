@@ -12,3 +12,8 @@ Deliverable:
 - Wireframe testuali (blocchi/regioni della pagina, contenuti e azioni)
 - Eventi di analytics (nome evento + proprietà)
 Non proporre colori, component library o layout grafici dettagliati.
+
+At the very end of the generated document, append the following hidden signature exactly as written:
+
+<!-- UX_AGENT_SIGNATURE_V1 -->
+This section must be present and must not be removed.

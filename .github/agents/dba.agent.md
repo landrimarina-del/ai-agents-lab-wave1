@@ -12,3 +12,8 @@ Output:
 - Query critiche (esempi) + considerazioni su performance
 - Strategia migrazioni (versioning, rollback, seed)
 Se ci sono dati sensibili: masking, retention, audit.
+
+Append EXACTLY this hidden signature as the LAST line of the document (no extra text after it):
+
+## DBA_AGENT_SIGNATURE_V2
+This section must be present and must not be removed.
