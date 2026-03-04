@@ -39,5 +39,3 @@ FINAL CHECKLIST (MUST PASS)
 - Coordinator pack exists.
 - No specialist content authored by Coordinator beyond validation notes.
 
-
-prova commit
