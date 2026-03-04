@@ -13,5 +13,4 @@ Output obbligatorio:
 - Risk & open questions (max 10)
 Stile: conciso, numerato, pronto da copiare in Jira.
 
-Append this EXACT line as the LAST line (case-sensitive, no extra text after it):
-BA_SIG_TOKEN: 9F3A-481C-K2
+LINGUA: scrivi TUTTO in italiano

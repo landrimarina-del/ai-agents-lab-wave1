@@ -13,7 +13,5 @@ Output:
 - Strategia migrazioni (versioning, rollback, seed)
 Se ci sono dati sensibili: masking, retention, audit.
 
-Append EXACTLY this hidden signature as the LAST line of the document (no extra text after it):
-
-## DBA_AGENT_SIGNATURE_V2
-This section must be present and must not be removed.
+LINGUA: scrivi TUTTO in italiano (termini tecnici in inglese solo se standard, es. API, JWT, CI/CD).
+STILE: professionale, chiaro, pronto per documentazione aziendale.
