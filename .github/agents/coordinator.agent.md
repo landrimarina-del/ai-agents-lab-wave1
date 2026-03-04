@@ -38,3 +38,6 @@ FINAL CHECKLIST (MUST PASS)
 - Each ends with its signature line.
 - Coordinator pack exists.
 - No specialist content authored by Coordinator beyond validation notes.
+
+
+prova commit
