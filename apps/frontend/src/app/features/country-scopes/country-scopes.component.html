@@ -1,0 +1,76 @@
+<main class="container">
+  <header class="row-between">
+    <h1>Area Protetta - Country Scopes</h1>
+    <button type="button" (click)="logout()">Logout</button>
+  </header>
+
+  <app-main-menu></app-main-menu>
+
+  <section class="card">
+    <h2>Lista Country Scopes</h2>
+    <button type="button" (click)="loadCountryScopes()" [disabled]="isLoading">
+      {{ isLoading ? 'Caricamento...' : 'Ricarica lista' }}
+    </button>
+
+    <p *ngIf="listError" class="error">{{ listError }}</p>
+
+    <ul *ngIf="countryScopes.length > 0">
+      <li *ngFor="let item of countryScopes" class="card">
+        <p><strong>ID:</strong> {{ item.id }}</p>
+        <p><strong>Code:</strong> {{ item.code }}</p>
+        <p><strong>Name:</strong> {{ item.name }}</p>
+        <p><strong>Stato:</strong> {{ item.active ? 'ACTIVE' : 'INACTIVE' }}</p>
+
+        <div class="row-actions">
+          <button type="button" (click)="selectForUpdate(item)">Modifica</button>
+          <button type="button" (click)="deactivateCountryScope(item.id)" [disabled]="deactivatingId === item.id || !item.active">
+            {{ deactivatingId === item.id ? 'Elaborazione...' : 'Delete logica' }}
+          </button>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Crea Country Scope</h2>
+    <form [formGroup]="createForm" (ngSubmit)="createCountryScope()">
+      <label>
+        Code (ISO2)
+        <input type="text" formControlName="code" />
+      </label>
+      <label>
+        Name
+        <input type="text" formControlName="name" />
+      </label>
+
+      <button type="submit" [disabled]="isCreating">{{ isCreating ? 'Creazione...' : 'Crea country scope' }}</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Aggiorna Country Scope</h2>
+    <form [formGroup]="updateForm" (ngSubmit)="updateCountryScope()">
+      <label>
+        ID
+        <input type="text" formControlName="id" readonly />
+      </label>
+      <label>
+        Code
+        <input type="text" formControlName="code" />
+      </label>
+      <label>
+        Name
+        <input type="text" formControlName="name" />
+      </label>
+      <label>
+        Active
+        <input type="checkbox" formControlName="isActive" />
+      </label>
+
+      <button type="submit" [disabled]="isUpdating">{{ isUpdating ? 'Aggiornamento...' : 'Aggiorna country scope' }}</button>
+    </form>
+  </section>
+
+  <p *ngIf="actionSuccess" class="ok">{{ actionSuccess }}</p>
+  <p *ngIf="actionError" class="error">{{ actionError }}</p>
+</main>

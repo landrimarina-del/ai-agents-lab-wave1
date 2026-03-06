@@ -1,0 +1,87 @@
+<main class="container">
+  <header class="row-between">
+    <h1>Area Protetta - Employees</h1>
+    <button type="button" (click)="logout()">Logout</button>
+  </header>
+
+  <app-main-menu></app-main-menu>
+
+  <section class="card">
+    <h2>Lista Employees</h2>
+    <button type="button" (click)="loadEmployees()" [disabled]="isLoading">
+      {{ isLoading ? 'Caricamento...' : 'Ricarica lista' }}
+    </button>
+
+    <p *ngIf="listError" class="error">{{ listError }}</p>
+
+    <ul *ngIf="employees.length > 0">
+      <li *ngFor="let item of employees" class="card">
+        <p><strong>ID:</strong> {{ item.id }}</p>
+        <p><strong>Employee ID:</strong> {{ item.employeeId || '-' }}</p>
+        <p><strong>Nome:</strong> {{ item.fullName || '-' }}</p>
+        <p><strong>Email:</strong> {{ item.email || '-' }}</p>
+        <p><strong>Shop:</strong> {{ item.shopCode || '-' }} ({{ item.shopId || '-' }})</p>
+        <p><strong>Country:</strong> {{ item.countryCode || '-' }}</p>
+        <p><strong>Stato:</strong> {{ item.active ? 'ACTIVE' : 'INACTIVE' }}</p>
+
+        <div class="row-actions">
+          <button type="button" (click)="selectForUpdate(item)">Modifica</button>
+          <button type="button" (click)="deactivateEmployee(item.id)" [disabled]="activeDeactivationId === item.id || !item.active">
+            {{ activeDeactivationId === item.id ? 'Disattivazione...' : 'Disattiva' }}
+          </button>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Crea Employee</h2>
+    <form [formGroup]="createForm" (ngSubmit)="createEmployee()">
+      <label>
+        Employee ID
+        <input type="text" formControlName="employeeId" />
+      </label>
+      <label>
+        Full name
+        <input type="text" formControlName="fullName" />
+      </label>
+      <label>
+        Email
+        <input type="email" formControlName="email" />
+      </label>
+      <label>
+        Shop ID
+        <input type="text" formControlName="shopId" />
+      </label>
+
+      <button type="submit" [disabled]="isCreating">{{ isCreating ? 'Creazione...' : 'Crea employee' }}</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Aggiorna Employee</h2>
+    <form [formGroup]="updateForm" (ngSubmit)="updateEmployee()">
+      <label>
+        ID
+        <input type="text" formControlName="id" readonly />
+      </label>
+      <label>
+        Full name
+        <input type="text" formControlName="fullName" />
+      </label>
+      <label>
+        Email
+        <input type="email" formControlName="email" />
+      </label>
+      <label>
+        Shop ID
+        <input type="text" formControlName="shopId" />
+      </label>
+
+      <button type="submit" [disabled]="isUpdating">{{ isUpdating ? 'Aggiornamento...' : 'Aggiorna employee' }}</button>
+    </form>
+  </section>
+
+  <p *ngIf="actionSuccess" class="ok">{{ actionSuccess }}</p>
+  <p *ngIf="actionError" class="error">{{ actionError }}</p>
+</main>

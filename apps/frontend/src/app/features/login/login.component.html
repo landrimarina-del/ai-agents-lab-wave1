@@ -1,0 +1,27 @@
+<main class="container">
+  <h1>Login</h1>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="card">
+    <label>
+      Email
+      <input type="email" formControlName="email" placeholder="utente@azienda.com" />
+    </label>
+    <p class="error" *ngIf="form.controls.email.touched && form.controls.email.invalid">
+      Inserire una email valida.
+    </p>
+
+    <label>
+      Password
+      <input type="password" formControlName="password" placeholder="Password" />
+    </label>
+    <p class="error" *ngIf="form.controls.password.touched && form.controls.password.invalid">
+      Password obbligatoria.
+    </p>
+
+    <button type="submit" [disabled]="isLoading">
+      {{ isLoading ? 'Accesso in corso...' : 'Accedi' }}
+    </button>
+  </form>
+
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+</main>

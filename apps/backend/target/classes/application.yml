@@ -1,0 +1,20 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: rise-backend
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:rise}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    enabled: true
+    locations: filesystem:/workspace/infra/db/migrations,classpath:db/migration
+
+app:
+  version: 0.0.1-SNAPSHOT
+  jwt:
+    secret: ${JWT_SECRET:dev-only-insecure-secret-change-me-please-change}
+    expiration-minutes: ${JWT_EXPIRATION_MINUTES:240}

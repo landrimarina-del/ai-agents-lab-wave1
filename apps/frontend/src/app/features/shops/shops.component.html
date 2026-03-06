@@ -1,0 +1,93 @@
+<main class="container">
+  <header class="row-between">
+    <h1>Area Protetta - Shops</h1>
+    <button type="button" (click)="logout()">Logout</button>
+  </header>
+
+  <app-main-menu></app-main-menu>
+
+  <section class="card">
+    <h2>Lista Shops</h2>
+    <button type="button" (click)="loadShops()" [disabled]="isLoading">
+      {{ isLoading ? 'Caricamento...' : 'Ricarica lista' }}
+    </button>
+
+    <p *ngIf="listError" class="error">{{ listError }}</p>
+
+    <ul *ngIf="shops.length > 0">
+      <li *ngFor="let item of shops" class="card">
+        <p><strong>ID:</strong> {{ item.id }}</p>
+        <p><strong>Shop Code:</strong> {{ item.shopCode || '-' }}</p>
+        <p><strong>Name:</strong> {{ item.name || '-' }}</p>
+        <p><strong>Country:</strong> {{ item.countryCode || '-' }}</p>
+        <p><strong>Region:</strong> {{ item.region || '-' }}</p>
+        <p><strong>Business Unit ID:</strong> {{ item.businessUnitId || '-' }}</p>
+
+        <button type="button" (click)="selectForUpdate(item)">Modifica</button>
+      </li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Crea Shop</h2>
+    <form [formGroup]="createForm" (ngSubmit)="createShop()">
+      <label>
+        Shop code
+        <input type="text" formControlName="shopCode" />
+      </label>
+      <label>
+        Name
+        <input type="text" formControlName="name" />
+      </label>
+      <label>
+        Country code
+        <input type="text" formControlName="countryCode" />
+      </label>
+      <label>
+        Region
+        <input type="text" formControlName="region" />
+      </label>
+      <label>
+        Business unit ID
+        <input type="text" formControlName="businessUnitId" />
+      </label>
+
+      <button type="submit" [disabled]="isCreating">{{ isCreating ? 'Creazione...' : 'Crea shop' }}</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Aggiorna Shop</h2>
+    <form [formGroup]="updateForm" (ngSubmit)="updateShop()">
+      <label>
+        ID
+        <input type="text" formControlName="id" readonly />
+      </label>
+      <label>
+        Shop code
+        <input type="text" formControlName="shopCode" />
+      </label>
+      <label>
+        Name
+        <input type="text" formControlName="name" />
+      </label>
+      <label>
+        Country code
+        <input type="text" formControlName="countryCode" />
+      </label>
+      <label>
+        Region
+        <input type="text" formControlName="region" />
+      </label>
+      <label>
+        Business unit ID
+        <input type="text" formControlName="businessUnitId" />
+      </label>
+
+      <button type="submit" [disabled]="isUpdating">{{ isUpdating ? 'Aggiornamento...' : 'Aggiorna shop' }}</button>
+    </form>
+  </section>
+
+  <p *ngIf="actionSuccess" class="ok">{{ actionSuccess }}</p>
+  <p *ngIf="actionError" class="error">{{ actionError }}</p>
+</main>

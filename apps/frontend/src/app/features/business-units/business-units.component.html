@@ -1,0 +1,100 @@
+<main class="container">
+  <header class="row-between">
+    <h1>Area Protetta - Business Units</h1>
+    <button type="button" (click)="logout()">Logout</button>
+  </header>
+
+  <app-main-menu></app-main-menu>
+
+  <section class="card">
+    <h2>Lista Business Unit</h2>
+    <button type="button" (click)="loadBusinessUnits()" [disabled]="isLoadingList">
+      {{ isLoadingList ? 'Caricamento...' : 'Ricarica lista' }}
+    </button>
+
+    <p *ngIf="listError" class="error">{{ listError }}</p>
+    <p *ngIf="businessUnits.length === 0 && !isLoadingList && !listError">Nessuna Business Unit disponibile.</p>
+
+    <ul *ngIf="businessUnits.length > 0">
+      <li *ngFor="let item of businessUnits" class="card">
+        <p><strong>ID:</strong> {{ item.id }}</p>
+        <p><strong>Code:</strong> {{ item.code || '-' }}</p>
+        <p><strong>Name:</strong> {{ item.name || '-' }}</p>
+        <p><strong>Description:</strong> {{ item.description || '-' }}</p>
+
+        <div class="row-actions">
+          <button type="button" (click)="selectForUpdate(item)">Modifica</button>
+          <button
+            type="button"
+            (click)="deleteBusinessUnit(item.id)"
+            [disabled]="deletingId === item.id"
+          >
+            {{ deletingId === item.id ? 'Eliminazione...' : 'Elimina' }}
+          </button>
+        </div>
+      </li>
+    </ul>
+
+    <p *ngIf="deleteSuccess" class="ok">{{ deleteSuccess }}</p>
+    <p *ngIf="deleteError" class="error">{{ deleteError }}</p>
+  </section>
+
+  <section class="card">
+    <h2>Crea Business Unit</h2>
+    <form [formGroup]="createForm" (ngSubmit)="createBusinessUnit()">
+      <label>
+        Code
+        <input type="text" formControlName="code" />
+      </label>
+
+      <label>
+        Name
+        <input type="text" formControlName="name" />
+      </label>
+
+      <label>
+        Description
+        <input type="text" formControlName="description" />
+      </label>
+
+      <button type="submit" [disabled]="isCreating">
+        {{ isCreating ? 'Creazione...' : 'Crea Business Unit' }}
+      </button>
+    </form>
+
+    <p *ngIf="createSuccess" class="ok">{{ createSuccess }}</p>
+    <p *ngIf="createError" class="error">{{ createError }}</p>
+  </section>
+
+  <section class="card">
+    <h2>Modifica Business Unit</h2>
+    <form [formGroup]="updateForm" (ngSubmit)="updateBusinessUnit()">
+      <label>
+        ID
+        <input type="text" formControlName="id" readonly />
+      </label>
+
+      <label>
+        Code
+        <input type="text" formControlName="code" />
+      </label>
+
+      <label>
+        Name
+        <input type="text" formControlName="name" />
+      </label>
+
+      <label>
+        Description
+        <input type="text" formControlName="description" />
+      </label>
+
+      <button type="submit" [disabled]="isUpdating">
+        {{ isUpdating ? 'Aggiornamento...' : 'Aggiorna Business Unit' }}
+      </button>
+    </form>
+
+    <p *ngIf="updateSuccess" class="ok">{{ updateSuccess }}</p>
+    <p *ngIf="updateError" class="error">{{ updateError }}</p>
+  </section>
+</main>

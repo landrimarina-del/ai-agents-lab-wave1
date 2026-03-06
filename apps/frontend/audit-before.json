@@ -1,0 +1,1159 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "@angular-devkit/architect": {
+      "name": "@angular-devkit/architect",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@angular-devkit/core"
+      ],
+      "effects": [
+        "@angular-devkit/build-webpack"
+      ],
+      "range": "0.1000.0-next.0 - 0.1000.0-rc.1 || 0.1200.0-next.0 - 0.1902.21 || 0.2000.0-next.0 - 0.2003.17 || 0.2100.0-next.0 - 0.2101.4 || 0.2102.0-next.0 - 0.2102.0-rc.2",
+      "nodes": [
+        "node_modules/@angular-devkit/architect"
+      ],
+      "fixAvailable": {
+        "name": "@angular-devkit/build-angular",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@angular-devkit/build-angular": {
+      "name": "@angular-devkit/build-angular",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@angular-devkit/architect",
+        "@angular-devkit/build-webpack",
+        "@angular-devkit/core",
+        "@angular/compiler-cli",
+        "@ngtools/webpack",
+        "@vitejs/plugin-basic-ssl",
+        "copy-webpack-plugin",
+        "esbuild",
+        "http-proxy-middleware",
+        "inquirer",
+        "vite",
+        "webpack",
+        "webpack-dev-server"
+      ],
+      "effects": [],
+      "range": "<=20.3.18 || 21.0.0-next.0 - 21.2.0",
+      "nodes": [
+        "node_modules/@angular-devkit/build-angular"
+      ],
+      "fixAvailable": {
+        "name": "@angular-devkit/build-angular",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@angular-devkit/build-webpack": {
+      "name": "@angular-devkit/build-webpack",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@angular-devkit/architect",
+        "webpack-dev-server"
+      ],
+      "effects": [
+        "@angular-devkit/build-angular"
+      ],
+      "range": "<=0.1902.21 || 0.2000.0-next.0 - 0.2003.17 || 0.2100.0-next.0 - 0.2101.4 || 0.2102.0-next.0 - 0.2102.0-rc.2",
+      "nodes": [
+        "node_modules/@angular-devkit/build-webpack"
+      ],
+      "fixAvailable": {
+        "name": "@angular-devkit/build-angular",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@angular-devkit/core": {
+      "name": "@angular-devkit/core",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "ajv"
+      ],
+      "effects": [
+        "@angular-devkit/architect",
+        "@angular-devkit/build-angular",
+        "@angular-devkit/schematics",
+        "@angular/cli",
+        "@schematics/angular"
+      ],
+      "range": "12.0.0-next.0 - 19.2.21 || 20.0.0-next.0 - 20.3.17 || 21.0.0-next.0 - 21.1.4 || 21.2.0-next.0 - 21.2.0-rc.2",
+      "nodes": [
+        "node_modules/@angular-devkit/core"
+      ],
+      "fixAvailable": {
+        "name": "@angular-devkit/build-angular",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@angular-devkit/schematics": {
+      "name": "@angular-devkit/schematics",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@angular-devkit/core"
+      ],
+      "effects": [],
+      "range": "12.0.0-next.0 - 19.2.21 || 20.0.0-next.0 - 20.3.17 || 21.0.0-next.0 - 21.1.4 || 21.2.0-next.0 - 21.2.0-rc.2",
+      "nodes": [
+        "node_modules/@angular-devkit/schematics"
+      ],
+      "fixAvailable": true
+    },
+    "@angular/animations": {
+      "name": "@angular/animations",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@angular/core"
+      ],
+      "effects": [
+        "@angular/platform-browser"
+      ],
+      "range": "<=18.2.14",
+      "nodes": [
+        "node_modules/@angular/animations"
+      ],
+      "fixAvailable": {
+        "name": "@angular/animations",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@angular/cli": {
+      "name": "@angular/cli",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@angular-devkit/architect",
+        "@angular-devkit/core",
+        "@angular-devkit/schematics",
+        "@schematics/angular",
+        "inquirer",
+        "pacote"
+      ],
+      "effects": [],
+      "range": "<=1.4.0-rc.2 || 6.2.9 - 20.3.17 || 21.0.0-next.0 - 21.1.4 || 21.2.0-next.0 - 21.2.0-rc.2",
+      "nodes": [
+        "node_modules/@angular/cli"
+      ],
+      "fixAvailable": {
+        "name": "@angular/cli",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@angular/common": {
+      "name": "@angular/common",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@angular/core",
+        {
+          "source": 1111063,
+          "name": "@angular/common",
+          "dependency": "@angular/common",
+          "title": "Angular is Vulnerable to XSRF Token Leakage via Protocol-Relative URLs in Angular HTTP Client",
+          "url": "https://github.com/advisories/GHSA-58c5-g7wp-6w37",
+          "severity": "high",
+          "cwe": [
+            "CWE-201",
+            "CWE-359"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<19.2.16"
+        }
+      ],
+      "effects": [
+        "@angular/forms",
+        "@angular/platform-browser",
+        "@angular/platform-browser-dynamic",
+        "@angular/router"
+      ],
+      "range": "<=19.2.15",
+      "nodes": [
+        "node_modules/@angular/common"
+      ],
+      "fixAvailable": {
+        "name": "@angular/common",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@angular/compiler": {
+      "name": "@angular/compiler",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@angular/core",
+        {
+          "source": 1111180,
+          "name": "@angular/compiler",
+          "dependency": "@angular/compiler",
+          "title": "Angular Stored XSS Vulnerability via SVG Animation, SVG URL and MathML Attributes",
+          "url": "https://github.com/advisories/GHSA-v4hv-rgfq-gp49",
+          "severity": "high",
+          "cwe": [
+            "CWE-79"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=18.2.14"
+        },
+        {
+          "source": 1112156,
+          "name": "@angular/compiler",
+          "dependency": "@angular/compiler",
+          "title": "Angular has XSS Vulnerability via Unsanitized SVG Script Attributes",
+          "url": "https://github.com/advisories/GHSA-jrmj-c5cx-3cw6",
+          "severity": "high",
+          "cwe": [
+            "CWE-79"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=18.2.14"
+        }
+      ],
+      "effects": [
+        "@angular/compiler-cli",
+        "@angular/platform-browser-dynamic"
+      ],
+      "range": "<=18.2.14",
+      "nodes": [
+        "node_modules/@angular/compiler"
+      ],
+      "fixAvailable": {
+        "name": "@angular/compiler",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@angular/compiler-cli": {
+      "name": "@angular/compiler-cli",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@angular/compiler"
+      ],
+      "effects": [
+        "@angular-devkit/build-angular",
+        "@ngtools/webpack"
+      ],
+      "range": "<=18.2.14",
+      "nodes": [
+        "node_modules/@angular/compiler-cli"
+      ],
+      "fixAvailable": {
+        "name": "@angular/compiler-cli",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@angular/core": {
+      "name": "@angular/core",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        {
+          "source": 1112155,
+          "name": "@angular/core",
+          "dependency": "@angular/core",
+          "title": "Angular has XSS Vulnerability via Unsanitized SVG Script Attributes",
+          "url": "https://github.com/advisories/GHSA-jrmj-c5cx-3cw6",
+          "severity": "high",
+          "cwe": [
+            "CWE-79"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=18.2.14"
+        },
+        {
+          "source": 1113587,
+          "name": "@angular/core",
+          "dependency": "@angular/core",
+          "title": "Angular i18n vulnerable to Cross-Site Scripting",
+          "url": "https://github.com/advisories/GHSA-prjf-86w9-mfqv",
+          "severity": "high",
+          "cwe": [
+            "CWE-79"
+          ],
+          "cvss": {
+            "score": 6.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+          },
+          "range": "<=18.2.14"
+        }
+      ],
+      "effects": [
+        "@angular/animations",
+        "@angular/common",
+        "@angular/compiler",
+        "@angular/forms",
+        "@angular/platform-browser",
+        "@angular/router"
+      ],
+      "range": "<=18.2.14",
+      "nodes": [
+        "node_modules/@angular/core"
+      ],
+      "fixAvailable": {
+        "name": "@angular/core",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@angular/forms": {
+      "name": "@angular/forms",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser"
+      ],
+      "effects": [],
+      "range": "<=19.2.15",
+      "nodes": [
+        "node_modules/@angular/forms"
+      ],
+      "fixAvailable": {
+        "name": "@angular/forms",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@angular/platform-browser": {
+      "name": "@angular/platform-browser",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@angular/animations",
+        "@angular/common",
+        "@angular/core"
+      ],
+      "effects": [
+        "@angular/forms"
+      ],
+      "range": "<=19.2.15",
+      "nodes": [
+        "node_modules/@angular/platform-browser"
+      ],
+      "fixAvailable": {
+        "name": "@angular/platform-browser",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@angular/platform-browser-dynamic": {
+      "name": "@angular/platform-browser-dynamic",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@angular/common",
+        "@angular/compiler",
+        "@angular/core",
+        "@angular/platform-browser"
+      ],
+      "effects": [],
+      "range": "<=19.2.15",
+      "nodes": [
+        "node_modules/@angular/platform-browser-dynamic"
+      ],
+      "fixAvailable": {
+        "name": "@angular/platform-browser-dynamic",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@angular/router": {
+      "name": "@angular/router",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser"
+      ],
+      "effects": [],
+      "range": "<=0.0.0-ROUTERPLACEHOLDER || 2.0.0-rc.0 - 19.2.15",
+      "nodes": [
+        "node_modules/@angular/router"
+      ],
+      "fixAvailable": {
+        "name": "@angular/router",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@ngtools/webpack": {
+      "name": "@ngtools/webpack",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@angular/compiler-cli"
+      ],
+      "effects": [
+        "@angular-devkit/build-angular"
+      ],
+      "range": "<=1.2.13 || 7.0.0-beta.0 - 18.2.21",
+      "nodes": [
+        "node_modules/@ngtools/webpack"
+      ],
+      "fixAvailable": {
+        "name": "@angular-devkit/build-angular",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@npmcli/run-script": {
+      "name": "@npmcli/run-script",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "node-gyp"
+      ],
+      "effects": [
+        "pacote"
+      ],
+      "range": "1.1.1 - 9.0.1",
+      "nodes": [
+        "node_modules/@npmcli/run-script"
+      ],
+      "fixAvailable": {
+        "name": "@angular/cli",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@schematics/angular": {
+      "name": "@schematics/angular",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@angular-devkit/core",
+        "@angular-devkit/schematics"
+      ],
+      "effects": [],
+      "range": "12.0.0-next.0 - 19.2.21 || 20.0.0-next.0 - 20.3.17 || 21.0.0-next.0 - 21.1.4 || 21.2.0-next.0 - 21.2.0-rc.2",
+      "nodes": [
+        "node_modules/@schematics/angular"
+      ],
+      "fixAvailable": true
+    },
+    "@sigstore/sign": {
+      "name": "@sigstore/sign",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "make-fetch-happen"
+      ],
+      "effects": [
+        "sigstore"
+      ],
+      "range": "<=2.3.2",
+      "nodes": [
+        "node_modules/@sigstore/sign"
+      ],
+      "fixAvailable": {
+        "name": "@angular/cli",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@sigstore/tuf": {
+      "name": "@sigstore/tuf",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "tuf-js"
+      ],
+      "effects": [
+        "sigstore"
+      ],
+      "range": "<=2.3.4",
+      "nodes": [
+        "node_modules/@sigstore/tuf"
+      ],
+      "fixAvailable": {
+        "name": "@angular/cli",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@vitejs/plugin-basic-ssl": {
+      "name": "@vitejs/plugin-basic-ssl",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "vite"
+      ],
+      "effects": [
+        "@angular-devkit/build-angular"
+      ],
+      "range": "<=1.1.0",
+      "nodes": [
+        "node_modules/@vitejs/plugin-basic-ssl"
+      ],
+      "fixAvailable": {
+        "name": "@angular-devkit/build-angular",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "ajv": {
+      "name": "ajv",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1113715,
+          "name": "ajv",
+          "dependency": "ajv",
+          "title": "ajv has ReDoS when using `$data` option",
+          "url": "https://github.com/advisories/GHSA-2g4f-4pwh-qvx6",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-400",
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=7.0.0-alpha.0 <8.18.0"
+        }
+      ],
+      "effects": [
+        "@angular-devkit/core"
+      ],
+      "range": "7.0.0-alpha.0 - 8.17.1",
+      "nodes": [
+        "node_modules/ajv"
+      ],
+      "fixAvailable": {
+        "name": "@angular-devkit/build-angular",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "cacache": {
+      "name": "cacache",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "tar"
+      ],
+      "effects": [
+        "make-fetch-happen",
+        "pacote"
+      ],
+      "range": "14.0.0 - 18.0.4",
+      "nodes": [
+        "node_modules/cacache"
+      ],
+      "fixAvailable": {
+        "name": "@angular/cli",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "copy-webpack-plugin": {
+      "name": "copy-webpack-plugin",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "serialize-javascript"
+      ],
+      "effects": [
+        "@angular-devkit/build-angular"
+      ],
+      "range": "4.3.0 - 13.0.1",
+      "nodes": [
+        "node_modules/copy-webpack-plugin"
+      ],
+      "fixAvailable": {
+        "name": "@angular-devkit/build-angular",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "esbuild": {
+      "name": "esbuild",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1102341,
+          "name": "esbuild",
+          "dependency": "esbuild",
+          "title": "esbuild enables any website to send any requests to the development server and read the response",
+          "url": "https://github.com/advisories/GHSA-67mh-4wv8-2f99",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-346"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
+          },
+          "range": "<=0.24.2"
+        }
+      ],
+      "effects": [
+        "@angular-devkit/build-angular",
+        "vite"
+      ],
+      "range": "<=0.24.2",
+      "nodes": [
+        "node_modules/esbuild",
+        "node_modules/vite/node_modules/esbuild"
+      ],
+      "fixAvailable": {
+        "name": "@angular-devkit/build-angular",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "external-editor": {
+      "name": "external-editor",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "tmp"
+      ],
+      "effects": [
+        "inquirer"
+      ],
+      "range": ">=1.1.1",
+      "nodes": [
+        "node_modules/external-editor"
+      ],
+      "fixAvailable": {
+        "name": "@angular/cli",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "http-proxy-middleware": {
+      "name": "http-proxy-middleware",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1104105,
+          "name": "http-proxy-middleware",
+          "dependency": "http-proxy-middleware",
+          "title": "http-proxy-middleware allows fixRequestBody to proceed even if bodyParser has failed",
+          "url": "https://github.com/advisories/GHSA-9gqv-wp59-fq42",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-754"
+          ],
+          "cvss": {
+            "score": 4,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:N"
+          },
+          "range": ">=1.3.0 <2.0.9"
+        }
+      ],
+      "effects": [
+        "@angular-devkit/build-angular"
+      ],
+      "range": "1.3.0 - 2.0.8",
+      "nodes": [
+        "node_modules/http-proxy-middleware"
+      ],
+      "fixAvailable": {
+        "name": "@angular-devkit/build-angular",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "inquirer": {
+      "name": "inquirer",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "external-editor"
+      ],
+      "effects": [
+        "@angular-devkit/build-angular",
+        "@angular/cli"
+      ],
+      "range": "3.0.0 - 8.2.6 || 9.0.0 - 9.3.7",
+      "nodes": [
+        "node_modules/inquirer"
+      ],
+      "fixAvailable": {
+        "name": "@angular/cli",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "make-fetch-happen": {
+      "name": "make-fetch-happen",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "cacache"
+      ],
+      "effects": [
+        "@sigstore/sign",
+        "node-gyp",
+        "npm-registry-fetch",
+        "tuf-js"
+      ],
+      "range": "7.1.1 - 14.0.0",
+      "nodes": [
+        "node_modules/make-fetch-happen"
+      ],
+      "fixAvailable": {
+        "name": "@angular/cli",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "node-gyp": {
+      "name": "node-gyp",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "make-fetch-happen",
+        "tar"
+      ],
+      "effects": [
+        "@npmcli/run-script"
+      ],
+      "range": "<=10.3.1",
+      "nodes": [
+        "node_modules/node-gyp"
+      ],
+      "fixAvailable": {
+        "name": "@angular/cli",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "npm-registry-fetch": {
+      "name": "npm-registry-fetch",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "make-fetch-happen"
+      ],
+      "effects": [
+        "pacote"
+      ],
+      "range": "7.0.0 - 18.0.0",
+      "nodes": [
+        "node_modules/npm-registry-fetch"
+      ],
+      "fixAvailable": {
+        "name": "@angular/cli",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "pacote": {
+      "name": "pacote",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@npmcli/run-script",
+        "cacache",
+        "npm-registry-fetch",
+        "sigstore",
+        "tar"
+      ],
+      "effects": [
+        "@angular/cli"
+      ],
+      "range": "5.0.0 - 21.0.0",
+      "nodes": [
+        "node_modules/pacote"
+      ],
+      "fixAvailable": {
+        "name": "@angular/cli",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "serialize-javascript": {
+      "name": "serialize-javascript",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1113686,
+          "name": "serialize-javascript",
+          "dependency": "serialize-javascript",
+          "title": "Serialize JavaScript is Vulnerable to RCE via RegExp.flags and Date.prototype.toISOString()",
+          "url": "https://github.com/advisories/GHSA-5c6j-r48x-rmvq",
+          "severity": "high",
+          "cwe": [
+            "CWE-96"
+          ],
+          "cvss": {
+            "score": 8.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+          },
+          "range": "<=7.0.2"
+        }
+      ],
+      "effects": [
+        "copy-webpack-plugin"
+      ],
+      "range": "<=7.0.2",
+      "nodes": [
+        "node_modules/serialize-javascript"
+      ],
+      "fixAvailable": {
+        "name": "@angular-devkit/build-angular",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "sigstore": {
+      "name": "sigstore",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@sigstore/sign",
+        "@sigstore/tuf"
+      ],
+      "effects": [
+        "pacote"
+      ],
+      "range": "1.6.0 - 2.3.1",
+      "nodes": [
+        "node_modules/sigstore"
+      ],
+      "fixAvailable": {
+        "name": "@angular/cli",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "tar": {
+      "name": "tar",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1112329,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "Race Condition in node-tar Path Reservations via Unicode Ligature Collisions on macOS APFS",
+          "url": "https://github.com/advisories/GHSA-r6q2-hw4h-h46w",
+          "severity": "high",
+          "cwe": [
+            "CWE-176"
+          ],
+          "cvss": {
+            "score": 8.8,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:H/A:L"
+          },
+          "range": "<=7.5.3"
+        },
+        {
+          "source": 1112659,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "node-tar Vulnerable to Arbitrary File Creation/Overwrite via Hardlink Path Traversal",
+          "url": "https://github.com/advisories/GHSA-34x7-hfp2-rc4v",
+          "severity": "high",
+          "cwe": [
+            "CWE-22",
+            "CWE-59"
+          ],
+          "cvss": {
+            "score": 8.2,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:L/A:N"
+          },
+          "range": "<7.5.7"
+        },
+        {
+          "source": 1113300,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "node-tar is Vulnerable to Arbitrary File Overwrite and Symlink Poisoning via Insufficient Path Sanitization",
+          "url": "https://github.com/advisories/GHSA-8qq5-rm4j-mr97",
+          "severity": "high",
+          "cwe": [
+            "CWE-22"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=7.5.2"
+        },
+        {
+          "source": 1113375,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "Arbitrary File Read/Write via Hardlink Target Escape Through Symlink Chain in node-tar Extraction",
+          "url": "https://github.com/advisories/GHSA-83g3-92jg-28cx",
+          "severity": "high",
+          "cwe": [
+            "CWE-22"
+          ],
+          "cvss": {
+            "score": 7.1,
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N"
+          },
+          "range": "<7.5.8"
+        },
+        {
+          "source": 1113992,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "tar has Hardlink Path Traversal via Drive-Relative Linkpath",
+          "url": "https://github.com/advisories/GHSA-qffp-2rhf-9h96",
+          "severity": "high",
+          "cwe": [
+            "CWE-22",
+            "CWE-59"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=7.5.9"
+        }
+      ],
+      "effects": [
+        "cacache",
+        "node-gyp",
+        "pacote"
+      ],
+      "range": "<=7.5.9",
+      "nodes": [
+        "node_modules/tar"
+      ],
+      "fixAvailable": {
+        "name": "@angular/cli",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "tmp": {
+      "name": "tmp",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1109537,
+          "name": "tmp",
+          "dependency": "tmp",
+          "title": "tmp allows arbitrary temporary file / directory write via symbolic link `dir` parameter",
+          "url": "https://github.com/advisories/GHSA-52f5-9888-hmc6",
+          "severity": "low",
+          "cwe": [
+            "CWE-59"
+          ],
+          "cvss": {
+            "score": 2.5,
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N"
+          },
+          "range": "<=0.2.3"
+        }
+      ],
+      "effects": [
+        "external-editor"
+      ],
+      "range": "<=0.2.3",
+      "nodes": [
+        "node_modules/tmp"
+      ],
+      "fixAvailable": {
+        "name": "@angular/cli",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "tuf-js": {
+      "name": "tuf-js",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "make-fetch-happen"
+      ],
+      "effects": [
+        "@sigstore/tuf"
+      ],
+      "range": "<=2.2.1",
+      "nodes": [
+        "node_modules/tuf-js"
+      ],
+      "fixAvailable": {
+        "name": "@angular/cli",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "vite": {
+      "name": "vite",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "esbuild"
+      ],
+      "effects": [
+        "@angular-devkit/build-angular",
+        "@vitejs/plugin-basic-ssl"
+      ],
+      "range": "0.11.0 - 6.1.6",
+      "nodes": [
+        "node_modules/vite"
+      ],
+      "fixAvailable": {
+        "name": "@angular-devkit/build-angular",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "webpack": {
+      "name": "webpack",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1113041,
+          "name": "webpack",
+          "dependency": "webpack",
+          "title": "webpack buildHttp: allowedUris allow-list bypass via URL userinfo (@) leading to build-time SSRF behavior",
+          "url": "https://github.com/advisories/GHSA-8fgc-7cc6-rx7x",
+          "severity": "low",
+          "cwe": [
+            "CWE-918"
+          ],
+          "cvss": {
+            "score": 3.7,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:L/I:L/A:N"
+          },
+          "range": ">=5.49.0 <=5.104.0"
+        },
+        {
+          "source": 1113042,
+          "name": "webpack",
+          "dependency": "webpack",
+          "title": "webpack buildHttp HttpUriPlugin allowedUris bypass via HTTP redirects → SSRF + cache persistence",
+          "url": "https://github.com/advisories/GHSA-38r7-794h-5758",
+          "severity": "low",
+          "cwe": [
+            "CWE-918"
+          ],
+          "cvss": {
+            "score": 3.7,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:L/I:L/A:N"
+          },
+          "range": ">=5.49.0 <5.104.0"
+        }
+      ],
+      "effects": [
+        "@angular-devkit/build-angular"
+      ],
+      "range": "5.49.0 - 5.104.0",
+      "nodes": [
+        "node_modules/webpack"
+      ],
+      "fixAvailable": {
+        "name": "@angular-devkit/build-angular",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    },
+    "webpack-dev-server": {
+      "name": "webpack-dev-server",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1108429,
+          "name": "webpack-dev-server",
+          "dependency": "webpack-dev-server",
+          "title": "webpack-dev-server users' source code may be stolen when they access a malicious web site with non-Chromium based browser",
+          "url": "https://github.com/advisories/GHSA-9jgg-88mc-972h",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-346"
+          ],
+          "cvss": {
+            "score": 6.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N"
+          },
+          "range": "<=5.2.0"
+        },
+        {
+          "source": 1108430,
+          "name": "webpack-dev-server",
+          "dependency": "webpack-dev-server",
+          "title": "webpack-dev-server users' source code may be stolen when they access a malicious web site",
+          "url": "https://github.com/advisories/GHSA-4v9v-hfq4-rm2v",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-749"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
+          },
+          "range": "<=5.2.0"
+        }
+      ],
+      "effects": [
+        "@angular-devkit/build-angular",
+        "@angular-devkit/build-webpack"
+      ],
+      "range": "<=5.2.0",
+      "nodes": [
+        "node_modules/webpack-dev-server"
+      ],
+      "fixAvailable": {
+        "name": "@angular-devkit/build-angular",
+        "version": "21.2.1",
+        "isSemVerMajor": true
+      }
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 4,
+      "moderate": 11,
+      "high": 25,
+      "critical": 0,
+      "total": 40
+    },
+    "dependencies": {
+      "prod": 12,
+      "dev": 861,
+      "optional": 89,
+      "peer": 0,
+      "peerOptional": 0,
+      "total": 872
+    }
+  }
+}

@@ -1,0 +1,139 @@
+<main class="container">
+  <header class="row-between">
+    <h1>Area Protetta - Gestione Utenti</h1>
+    <button type="button" (click)="logout()">Logout</button>
+  </header>
+
+  <app-main-menu></app-main-menu>
+
+  <p>Sessione utente ID: {{ currentUserId || 'n/d' }}</p>
+  <p>Ruolo corrente: {{ currentRole }}</p>
+
+  <section class="card">
+    <h2>Crea utente</h2>
+    <form [formGroup]="createForm" (ngSubmit)="createUser()">
+      <label>
+        Email
+        <input type="email" formControlName="email" />
+      </label>
+
+      <label>
+        Full name
+        <input type="text" formControlName="fullName" />
+      </label>
+
+      <label>
+        Password
+        <input type="password" formControlName="password" />
+      </label>
+
+      <label>
+        Role
+        <select formControlName="role" (change)="onRoleChange()">
+          <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+        </select>
+      </label>
+
+      <label>
+        Country scope
+        <select formControlName="countryScope" multiple>
+          <option *ngFor="let item of availableCountryScopes" [value]="item.code">
+            {{ item.code }} - {{ item.name }}
+          </option>
+        </select>
+      </label>
+
+      <button type="submit" [disabled]="isCreating">
+        {{ isCreating ? 'Creazione...' : 'Crea utente' }}
+      </button>
+    </form>
+
+    <p *ngIf="createSuccess" class="ok">{{ createSuccess }}</p>
+    <p *ngIf="createError" class="error">{{ createError }}</p>
+  </section>
+
+  <section class="card">
+    <h2>Lista utenti</h2>
+    <button type="button" (click)="loadUsers()" [disabled]="isListLoading">
+      {{ isListLoading ? 'Caricamento...' : 'Ricarica lista utenti' }}
+    </button>
+
+    <p *ngIf="listInfo">{{ listInfo }}</p>
+    <p *ngIf="listError" class="error">{{ listError }}</p>
+
+    <ul *ngIf="users.length > 0" class="card">
+      <li *ngFor="let user of users" class="card">
+        <p><strong>ID:</strong> {{ user.id }}</p>
+        <p><strong>Email:</strong> {{ user.email || '-' }}</p>
+        <p><strong>Nome:</strong> {{ user.fullName || '-' }}</p>
+        <p><strong>Role:</strong> {{ user.role || '-' }}</p>
+        <p><strong>Stato:</strong> {{ isUserActive(user) ? 'ACTIVE' : 'INACTIVE' }}</p>
+
+        <div class="row-actions">
+          <button
+            type="button"
+            (click)="deactivateUser(user)"
+            [disabled]="activeActionUserId === user.id || !isUserActive(user) || user.id === currentUserId"
+          >
+            {{ activeActionUserId === user.id ? 'Elaborazione...' : 'Deactivate' }}
+          </button>
+
+          <button
+            type="button"
+            (click)="reactivateUser(user)"
+            [disabled]="activeActionUserId === user.id || isUserActive(user)"
+          >
+            {{ activeActionUserId === user.id ? 'Elaborazione...' : 'Reactivate' }}
+          </button>
+        </div>
+
+        <div *ngIf="isCountryManager(user)" class="card">
+          <h3>Modifica Business Unit associate (COUNTRY_MANAGER)</h3>
+          <label>
+            IDs BU (separati da virgola)
+            <input type="text" [(ngModel)]="businessUnitInputByUserId[user.id]" [ngModelOptions]="{ standalone: true }" />
+          </label>
+          <button type="button" (click)="saveBusinessUnits(user)" [disabled]="activeBuUpdateUserId === user.id">
+            {{ activeBuUpdateUserId === user.id ? 'Salvataggio...' : 'Salva BU associate' }}
+          </button>
+          <p *ngIf="businessUnitMessageByUserId[user.id]" class="ok">{{ businessUnitMessageByUserId[user.id] }}</p>
+          <p *ngIf="businessUnitErrorByUserId[user.id]" class="error">{{ businessUnitErrorByUserId[user.id] }}</p>
+        </div>
+      </li>
+    </ul>
+
+    <div *ngIf="isListEndpointUnavailable" class="card">
+      <h3>Fallback manuale azioni utente</h3>
+      <form [formGroup]="targetForm">
+        <label>
+          User ID target
+          <input type="text" formControlName="targetUserId" />
+        </label>
+      </form>
+
+      <div class="row-actions">
+        <button type="button" (click)="deactivate()" [disabled]="isDeactivating || isSelfTarget">
+          {{ isDeactivating ? 'Disattivazione...' : 'Deactivate' }}
+        </button>
+
+        <button type="button" (click)="reactivate()" [disabled]="isReactivating">
+          {{ isReactivating ? 'Riattivazione...' : 'Reactivate' }}
+        </button>
+      </div>
+
+      <p *ngIf="isSelfTarget" class="error">Self-deactivate bloccato (MVP).</p>
+    </div>
+
+    <p *ngIf="actionSuccess" class="ok">{{ actionSuccess }}</p>
+    <p *ngIf="actionError" class="error">{{ actionError }}</p>
+  </section>
+
+  <section class="card">
+    <h2>Smoke Health</h2>
+    <button type="button" (click)="checkHealth()" [disabled]="isHealthLoading">
+      {{ isHealthLoading ? 'Checking...' : 'Check /api/health' }}
+    </button>
+    <p *ngIf="healthText">{{ healthText }}</p>
+    <p *ngIf="healthError" class="error">{{ healthError }}</p>
+  </section>
+</main>
